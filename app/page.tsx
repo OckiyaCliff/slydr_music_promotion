@@ -131,14 +131,14 @@ export default function LandingPage() {
         {/* Hero Content */}
         <div className="relative z-[2] max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-8">
           <FadeInSection>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm text-purple-300 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 backdrop-blur-sm text-sm text-purple-600 dark:text-purple-300 mb-6">
               <span className="animate-pulse w-2 h-2 bg-purple-400 rounded-full" />
               Now in Public Beta
             </div>
           </FadeInSection>
 
           <FadeInSection delay={100}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-foreground mb-6">
               Empower your music. 
               <br />
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
@@ -148,7 +148,7 @@ export default function LandingPage() {
           </FadeInSection>
 
           <FadeInSection delay={200}>
-            <p className="text-sm sm:text-base text-white/50 max-w-lg mx-auto leading-relaxed mb-8 font-medium">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto leading-relaxed mb-8 font-medium">
               The premium distribution and promotion platform designed for the modern independent artist. 
               Manage your career, connect with experts, and scale your growth.
             </p>
@@ -180,8 +180,8 @@ export default function LandingPage() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2]">
-          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1.5">
-            <div className="w-1.5 h-3 bg-white/40 rounded-full animate-bounce" />
+          <div className="w-6 h-10 rounded-full border-2 border-foreground/20 flex items-start justify-center p-1.5">
+            <div className="w-1.5 h-3 bg-foreground/40 rounded-full animate-bounce" />
           </div>
         </div>
       </section>
@@ -206,11 +206,11 @@ export default function LandingPage() {
           <FadeInSection>
             <div className="text-center space-y-4 mb-20">
               <span className="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold">Why Slydr?</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
                 Engineered for{' '}
                 <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Impact</span>
               </h2>
-              <p className="text-white/40 text-base max-w-xl mx-auto font-medium">We provide the tools and network to take your music from the studio to the charts.</p>
+              <p className="text-muted-foreground text-base max-w-xl mx-auto font-medium">We provide the tools and network to take your music from the studio to the charts.</p>
             </div>
           </FadeInSection>
 
@@ -248,11 +248,11 @@ export default function LandingPage() {
           <FadeInSection>
             <div className="text-center space-y-4 mb-16">
               <span className="text-sm uppercase tracking-widest text-cyan-400 font-medium">Process</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
                 Four steps to{' '}
                 <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">launch</span>
               </h2>
-              <p className="text-white/50 text-lg max-w-2xl mx-auto">From signup to streams — it&apos;s that simple.</p>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">From signup to streams — it&apos;s that simple.</p>
             </div>
           </FadeInSection>
 
@@ -283,9 +283,9 @@ export default function LandingPage() {
             <FadeInSection direction="left">
               <div className="space-y-6">
                 <span className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-bold">The Dashboard</span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
                   Your entire career, <br />
-                  <span className="text-white/40 font-medium">in one beautiful view.</span>
+                  <span className="text-muted-foreground font-medium">in one beautiful view.</span>
                 </h2>
                 <div className="space-y-4 pt-4">
                   {[
@@ -298,8 +298,8 @@ export default function LandingPage() {
                         <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-white">{item.title}</h4>
-                        <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
+                        <h4 className="text-sm font-bold text-foreground">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -310,9 +310,9 @@ export default function LandingPage() {
             <FadeInSection direction="right">
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl group-hover:opacity-100 opacity-50 transition-opacity duration-500 dark:block hidden" />
-                <div className="relative rounded-2xl border border-black/10 dark:border-white/10 bg-white/5 backdrop-blur-xl p-4 overflow-hidden aspect-video shadow-none">
-                  <div className="w-full h-full rounded-lg bg-black/40 flex items-center justify-center">
-                    <span className="text-sm font-medium text-white/20 italic">Dashboard Interface Preview</span>
+                <div className="relative rounded-2xl border border-black/10 dark:border-white/10 bg-muted/30 dark:bg-white/5 backdrop-blur-xl p-4 overflow-hidden aspect-video shadow-none">
+                  <div className="w-full h-full rounded-lg bg-black/5 dark:bg-black/40 flex items-center justify-center">
+                    <span className="text-sm font-medium text-foreground/20 italic">Dashboard Interface Preview</span>
                   </div>
                 </div>
               </div>
@@ -327,7 +327,7 @@ export default function LandingPage() {
           <FadeInSection>
             <div className="text-center space-y-4 mb-20">
               <span className="text-xs uppercase tracking-[0.2em] text-pink-400 font-bold">FAQ</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">Questions? We have answers.</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Questions? We have answers.</h2>
             </div>
           </FadeInSection>
 
@@ -338,9 +338,9 @@ export default function LandingPage() {
               { q: 'How long do campaigns take?', a: 'Typical campaigns run for 4-8 weeks, but we offer custom packages tailored to your release schedule.' }
             ].map((faq, i) => (
               <FadeInSection key={i} delay={i * 100}>
-                <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-300">
-                  <h4 className="text-base font-bold text-white mb-2">{faq.q}</h4>
-                  <p className="text-sm text-white/40 leading-relaxed">{faq.a}</p>
+                <div className="p-6 rounded-2xl border border-black/5 dark:border-white/5 bg-black/[0.02] dark:bg-white/[0.02] hover:bg-black/[0.05] dark:hover:bg-white/[0.05] transition-colors duration-300">
+                  <h4 className="text-base font-bold text-foreground mb-2">{faq.q}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
                 </div>
               </FadeInSection>
             ))}
@@ -354,7 +354,7 @@ export default function LandingPage() {
           <FadeInSection>
             <div className="text-center space-y-4 mb-16">
               <span className="text-xs uppercase tracking-[0.2em] text-pink-400 font-bold">Artist Voice</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
                 Loved by{' '}
                 <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">creatives</span>
               </h2>
@@ -380,14 +380,14 @@ export default function LandingPage() {
                         <Star key={s} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-white/70 text-sm leading-relaxed flex-1 italic font-medium">&ldquo;{t.quote}&rdquo;</p>
+                    <p className="text-foreground/70 text-sm leading-relaxed flex-1 italic font-medium">&ldquo;{t.quote}&rdquo;</p>
                     <div className="flex items-center gap-3 mt-6 pt-6 border-t border-border">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-[10px] font-bold text-white shrink-0">
                         {t.avatar}
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-white uppercase tracking-wider">{t.name}</div>
-                        <div className="text-[10px] text-white/40 font-semibold uppercase">{t.role}</div>
+                        <div className="text-xs font-bold text-foreground uppercase tracking-wider">{t.name}</div>
+                        <div className="text-[10px] text-muted-foreground font-semibold uppercase">{t.role}</div>
                       </div>
                     </div>
                   </div>
