@@ -46,13 +46,13 @@ export default function SignInPage() {
       </div>
       <div className="absolute inset-0 z-[1] bg-background/60 backdrop-blur-[2px]" />
 
-      <Card className="w-full max-w-md relative z-10 border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden">
+      <Card className="w-full max-w-md relative z-10 border-black/10 dark:border-white/10 bg-white/5 backdrop-blur-xl shadow-none overflow-hidden">
         <CardHeader className="space-y-1 pb-6 pt-10 text-center">
           <Link href="/" className="inline-block mb-4">
             <span className="text-3xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">slydr</span>
           </Link>
-          <CardTitle className="text-2xl font-bold text-white">Welcome back</CardTitle>
-          <CardDescription className="text-white/50">Enter your credentials to access your artist portal</CardDescription>
+          <CardTitle className="text-2xl font-bold text-foreground">Welcome back</CardTitle>
+          <CardDescription className="text-foreground/50">Enter your credentials to access your artist portal</CardDescription>
         </CardHeader>
         <CardContent className="pb-10">
           {error && (
@@ -83,12 +83,12 @@ export default function SignInPage() {
                 required 
               />
             </div>
-            <Button type="submit" className="w-full h-12 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-bold text-base transition-all duration-300 shadow-lg shadow-purple-500/20 mt-4 border-0" disabled={isLoading}>
+            <Button type="submit" className="w-full h-12 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-bold text-base transition-all duration-300 mt-4 border-0 shadow-none" disabled={isLoading}>
               {isLoading ? 'Authenticating...' : 'Sign In'}
             </Button>
           </form>
-          <div className="mt-8 pt-6 border-t border-white/5 text-center">
-            <p className="text-sm text-white/40">
+          <div className="mt-8 pt-6 border-t border-black/5 dark:border-white/5 text-center">
+            <p className="text-sm text-foreground/40">
               New to the platform?{' '}
               <Link href="/auth/signup" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors">Create account</Link>
             </p>

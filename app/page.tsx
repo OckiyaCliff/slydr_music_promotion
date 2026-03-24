@@ -171,7 +171,7 @@ export default function LandingPage() {
                   </Link>
                 </Button>
               </BorderGlow>
-              <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-muted/50 px-8 py-6 text-base rounded-xl backdrop-blur-sm" asChild>
+              <Button size="lg" variant="outline" className="border-black/10 dark:border-white/10 text-foreground hover:bg-muted/50 px-8 py-6 text-base rounded-xl backdrop-blur-sm shadow-none" asChild>
                 <Link href="#how-it-works">See How It Works</Link>
               </Button>
             </div>
@@ -225,7 +225,7 @@ export default function LandingPage() {
                   glowIntensity={0.5}
                   glowRadius={30}
                   edgeSensitivity={25}
-                  className="h-full border border-border bg-card"
+                  className="h-full border border-black/10 dark:border-white/10 bg-card shadow-none"
                 >
                   <div className="p-8 space-y-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 flex items-center justify-center border border-border">
@@ -260,7 +260,7 @@ export default function LandingPage() {
             {steps.map((step, i) => (
               <FadeInSection key={step.number} delay={i * 120}>
                 <div className="relative group">
-                  <div className="p-6 rounded-2xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-500 hover:bg-card h-full">
+                  <div className="p-6 rounded-2xl border border-black/10 dark:border-white/5 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-500 hover:bg-card h-full shadow-none">
                     <div className="text-4xl font-black text-foreground/5 mb-4 group-hover:text-primary/20 transition-colors duration-500">{step.number}</div>
                     <step.icon className="h-8 w-8 text-cyan-500 mb-4" />
                     <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
@@ -309,8 +309,8 @@ export default function LandingPage() {
             
             <FadeInSection direction="right">
               <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl group-hover:opacity-100 opacity-50 transition-opacity duration-500" />
-                <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 overflow-hidden aspect-video">
+                <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl group-hover:opacity-100 opacity-50 transition-opacity duration-500 dark:block hidden" />
+                <div className="relative rounded-2xl border border-black/10 dark:border-white/10 bg-white/5 backdrop-blur-xl p-4 overflow-hidden aspect-video shadow-none">
                   <div className="w-full h-full rounded-lg bg-black/40 flex items-center justify-center">
                     <span className="text-sm font-medium text-white/20 italic">Dashboard Interface Preview</span>
                   </div>
