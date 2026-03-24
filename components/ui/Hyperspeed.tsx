@@ -1059,7 +1059,6 @@ class App {
         this.renderer.setSize(w, h, false);
         this.camera.aspect = w / h;
         this.camera.updateProjectionMatrix();
-        this.composer.setSize(w, h);
         this.hasValidSize = true;
       } else { requestAnimationFrame(this.tick); return; }
     }

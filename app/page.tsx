@@ -103,24 +103,30 @@ const stats = [
   { value: '98%', label: 'Satisfaction Rate' },
 ]
 
+import Header from '@/components/Header'
+
 export default function LandingPage() {
   const effectOptions = useMemo(() => hyperspeedConfig, [])
   const [mounted, setMounted] = useState(false)
   useEffect(() => { setMounted(true) }, [])
 
   return (
-    <div className="min-h-screen bg-[#030014] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <Header />
+      
       {/* ── Hero Section ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Hyperspeed Background */}
         <div className="absolute inset-0 z-0">
           {mounted && <Hyperspeed effectOptions={effectOptions} />}
         </div>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#030014]/40 via-[#030014]/60 to-[#030014]" />
-        {/* Radial glow accents */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] z-[1] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] z-[1] pointer-events-none" />
+        
+        {/* Lighter Gradient Overlay - More subtle contrast */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/10 via-background/40 to-background" />
+        
+        {/* Radial glow accents - Reduced intensity for "lighter" feel */}
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/[0.08] rounded-full blur-[120px] z-[1] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/[0.08] rounded-full blur-[120px] z-[1] pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative z-[2] max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-8">
@@ -142,7 +148,7 @@ export default function LandingPage() {
           </FadeInSection>
 
           <FadeInSection delay={200}>
-            <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               The all-in-one platform for independent musicians to manage promotion campaigns,
               connect with specialists, and grow their audience — faster than ever.
             </p>
@@ -165,7 +171,7 @@ export default function LandingPage() {
                   </Link>
                 </Button>
               </BorderGlow>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-base rounded-xl backdrop-blur-sm" asChild>
+              <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-muted/50 px-8 py-6 text-base rounded-xl backdrop-blur-sm" asChild>
                 <Link href="#how-it-works">See How It Works</Link>
               </Button>
             </div>
@@ -181,13 +187,13 @@ export default function LandingPage() {
       </section>
 
       {/* ── Stats Bar ── */}
-      <section className="relative z-10 border-y border-white/5 bg-white/[0.02] backdrop-blur-md">
+      <section className="relative z-10 border-y border-border bg-muted/5 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <FadeInSection key={stat.label} delay={i * 100}>
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">{stat.value}</div>
-                <div className="text-sm text-white/40 mt-1 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent">{stat.value}</div>
+                <div className="text-sm text-muted-foreground mt-1 uppercase tracking-wider">{stat.label}</div>
               </div>
             </FadeInSection>
           ))}
@@ -204,7 +210,7 @@ export default function LandingPage() {
                 Services built for{' '}
                 <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">artists</span>
               </h2>
-              <p className="text-white/50 text-lg max-w-2xl mx-auto">Everything you need to promote your music effectively and professionally.</p>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Everything you need to promote your music effectively and professionally.</p>
             </div>
           </FadeInSection>
 
@@ -213,20 +219,20 @@ export default function LandingPage() {
               <FadeInSection key={title} delay={i * 100}>
                 <BorderGlow
                   borderRadius={20}
-                  backgroundColor="#0a0a1a"
+                  backgroundColor="transparent"
                   glowColor="280 60 60"
                   colors={['#a855f7', '#ec4899', '#06b6d4']}
                   glowIntensity={0.5}
                   glowRadius={30}
                   edgeSensitivity={25}
-                  className="h-full"
+                  className="h-full border border-border bg-card"
                 >
                   <div className="p-8 space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10">
-                      <Icon className="h-6 w-6 text-purple-400" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-cyan-500/10 flex items-center justify-center border border-border">
+                      <Icon className="h-6 w-6 text-purple-500" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white">{title}</h3>
-                    <p className="text-white/50 leading-relaxed">{desc}</p>
+                    <h3 className="text-xl font-semibold text-foreground">{title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{desc}</p>
                   </div>
                 </BorderGlow>
               </FadeInSection>
@@ -254,14 +260,14 @@ export default function LandingPage() {
             {steps.map((step, i) => (
               <FadeInSection key={step.number} delay={i * 120}>
                 <div className="relative group">
-                  <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:border-purple-500/30 transition-all duration-500 hover:bg-white/[0.04] h-full">
-                    <div className="text-4xl font-black text-white/[0.06] mb-4 group-hover:text-purple-500/20 transition-colors duration-500">{step.number}</div>
-                    <step.icon className="h-8 w-8 text-cyan-400 mb-4" />
-                    <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
-                    <p className="text-white/40 text-sm leading-relaxed">{step.desc}</p>
+                  <div className="p-6 rounded-2xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-500 hover:bg-card h-full">
+                    <div className="text-4xl font-black text-foreground/5 mb-4 group-hover:text-primary/20 transition-colors duration-500">{step.number}</div>
+                    <step.icon className="h-8 w-8 text-cyan-500 mb-4" />
+                    <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
                   </div>
                   {i < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-white/10 to-transparent" />
+                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
                   )}
                 </div>
               </FadeInSection>
@@ -288,13 +294,13 @@ export default function LandingPage() {
               <FadeInSection key={t.name} delay={i * 120}>
                 <BorderGlow
                   borderRadius={20}
-                  backgroundColor="#0a0a1a"
+                  backgroundColor="transparent"
                   glowColor="320 60 60"
                   colors={['#ec4899', '#a855f7', '#06b6d4']}
                   glowIntensity={0.4}
                   glowRadius={25}
                   edgeSensitivity={30}
-                  className="h-full"
+                  className="h-full border border-border bg-card"
                 >
                   <div className="p-8 flex flex-col h-full">
                     <div className="flex items-center gap-1 mb-4">
@@ -302,14 +308,14 @@ export default function LandingPage() {
                         <Star key={s} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-white/70 leading-relaxed flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                    <div className="flex items-center gap-3 mt-6 pt-6 border-t border-white/5">
+                    <p className="text-foreground/70 leading-relaxed flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
+                    <div className="flex items-center gap-3 mt-6 pt-6 border-t border-border">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xs font-bold text-white">
                         {t.avatar}
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-white">{t.name}</div>
-                        <div className="text-xs text-white/40">{t.role}</div>
+                        <div className="text-sm font-semibold text-foreground">{t.name}</div>
+                        <div className="text-xs text-muted-foreground">{t.role}</div>
                       </div>
                     </div>
                   </div>
@@ -325,11 +331,11 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/10 to-transparent pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative">
           <FadeInSection>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
               Ready to{' '}
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">grow?</span>
             </h2>
-            <p className="text-lg text-white/50 mb-10 max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
               Join thousands of independent artists who are scaling their music careers with Slydr.
             </p>
             <BorderGlow
@@ -353,43 +359,43 @@ export default function LandingPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-white/5 px-4 sm:px-6 py-16">
+      <footer className="border-t border-border px-4 sm:px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="space-y-4">
-              <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">slydr</div>
-              <p className="text-sm text-white/30 leading-relaxed">Music promotion platform for independent artists who refuse to stay underground.</p>
+              <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent">slydr</div>
+              <p className="text-sm text-muted-foreground leading-relaxed">Music promotion platform for independent artists who refuse to stay underground.</p>
             </div>
             <div className="space-y-4">
-              <h4 className="font-semibold text-sm text-white/60 uppercase tracking-wider">Platform</h4>
-              <ul className="space-y-3 text-sm text-white/30">
-                <li><Link href="#services" className="hover:text-purple-400 transition-colors duration-300">Services</Link></li>
-                <li><Link href="#how-it-works" className="hover:text-purple-400 transition-colors duration-300">How It Works</Link></li>
-                <li><Link href="/auth/signup" className="hover:text-purple-400 transition-colors duration-300">Get Started</Link></li>
+              <h4 className="font-semibold text-sm text-foreground/60 uppercase tracking-wider">Platform</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground/60">
+                <li><Link href="#services" className="hover:text-primary transition-colors duration-300">Services</Link></li>
+                <li><Link href="#how-it-works" className="hover:text-primary transition-colors duration-300">How It Works</Link></li>
+                <li><Link href="/auth/signup" className="hover:text-primary transition-colors duration-300">Get Started</Link></li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h4 className="font-semibold text-sm text-white/60 uppercase tracking-wider">Company</h4>
-              <ul className="space-y-3 text-sm text-white/30">
-                <li><Link href="#" className="hover:text-purple-400 transition-colors duration-300">About</Link></li>
-                <li><Link href="#" className="hover:text-purple-400 transition-colors duration-300">Blog</Link></li>
-                <li><Link href="#" className="hover:text-purple-400 transition-colors duration-300">Contact</Link></li>
+              <h4 className="font-semibold text-sm text-foreground/60 uppercase tracking-wider">Company</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground/60">
+                <li><Link href="#" className="hover:text-primary transition-colors duration-300">About</Link></li>
+                <li><Link href="#" className="hover:text-primary transition-colors duration-300">Blog</Link></li>
+                <li><Link href="#" className="hover:text-primary transition-colors duration-300">Contact</Link></li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h4 className="font-semibold text-sm text-white/60 uppercase tracking-wider">Legal</h4>
-              <ul className="space-y-3 text-sm text-white/30">
-                <li><Link href="#" className="hover:text-purple-400 transition-colors duration-300">Privacy Policy</Link></li>
-                <li><Link href="#" className="hover:text-purple-400 transition-colors duration-300">Terms of Service</Link></li>
+              <h4 className="font-semibold text-sm text-foreground/60 uppercase tracking-wider">Legal</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground/60">
+                <li><Link href="#" className="hover:text-primary transition-colors duration-300">Privacy Policy</Link></li>
+                <li><Link href="#" className="hover:text-primary transition-colors duration-300">Terms of Service</Link></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-white/20">© 2026 Slydr. All rights reserved.</p>
+          <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground/40">© 2026 Slydr. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <Link href="#" className="text-sm text-white/20 hover:text-purple-400 transition-colors">Twitter</Link>
-              <Link href="#" className="text-sm text-white/20 hover:text-purple-400 transition-colors">Instagram</Link>
-              <Link href="#" className="text-sm text-white/20 hover:text-purple-400 transition-colors">Discord</Link>
+              <Link href="#" className="text-sm text-muted-foreground/40 hover:text-primary transition-colors">Twitter</Link>
+              <Link href="#" className="text-sm text-muted-foreground/40 hover:text-primary transition-colors">Instagram</Link>
+              <Link href="#" className="text-sm text-muted-foreground/40 hover:text-primary transition-colors">Discord</Link>
             </div>
           </div>
         </div>
