@@ -8,6 +8,10 @@ import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { signIn } from '@/lib/supabase/auth'
 
+import dynamic from 'next/dynamic'
+
+const Hyperspeed = dynamic(() => import('@/components/ui/Hyperspeed'), { ssr: false })
+
 export default function SignInPage() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
@@ -35,34 +39,60 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-2">
-          <Link href="/" className="text-primary font-bold text-lg mb-4 inline-block">slydr</Link>
-          <CardTitle>Sign in</CardTitle>
-          <CardDescription>Enter your credentials to access your account</CardDescription>
+    <div className="min-h-screen relative flex items-center justify-center px-4 overflow-hidden">
+      {/* Background Effect */}
+      <div className="absolute inset-0 z-0">
+        <Hyperspeed />
+      </div>
+      <div className="absolute inset-0 z-[1] bg-background/60 backdrop-blur-[2px]" />
+
+      <Card className="w-full max-w-md relative z-10 border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden">
+        <CardHeader className="space-y-1 pb-6 pt-10 text-center">
+          <Link href="/" className="inline-block mb-4">
+            <span className="text-3xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">slydr</span>
+          </Link>
+          <CardTitle className="text-2xl font-bold text-white">Welcome back</CardTitle>
+          <CardDescription className="text-white/50">Enter your credentials to access your artist portal</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pb-10">
           {error && (
-            <div className="mb-4 p-3 bg-destructive/10 text-destructive text-sm rounded-md">{error}</div>
+            <div className="mb-6 p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-xs rounded-lg text-center">{error}</div>
           )}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium">Email</label>
-              <Input type="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required />
+              <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Email Address</label>
+              <Input 
+                type="email" 
+                name="email" 
+                placeholder="artist@slydr.com" 
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                value={formData.email} 
+                onChange={handleChange} 
+                required 
+              />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Password</label>
-              <Input type="password" name="password" placeholder="••••••••" value={formData.password} onChange={handleChange} required />
+              <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Password</label>
+              <Input 
+                type="password" 
+                name="password" 
+                placeholder="••••••••" 
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                value={formData.password} 
+                onChange={handleChange} 
+                required 
+              />
             </div>
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? 'Signing in...' : 'Sign in'}
+            <Button type="submit" className="w-full h-12 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-bold text-base transition-all duration-300 shadow-lg shadow-purple-500/20 mt-4 border-0" disabled={isLoading}>
+              {isLoading ? 'Authenticating...' : 'Sign In'}
             </Button>
           </form>
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            {"Don't have an account? "}
-            <Link href="/auth/signup" className="text-primary hover:underline font-medium">Sign up</Link>
-          </p>
+          <div className="mt-8 pt-6 border-t border-white/5 text-center">
+            <p className="text-sm text-white/40">
+              New to the platform?{' '}
+              <Link href="/auth/signup" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors">Create account</Link>
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>

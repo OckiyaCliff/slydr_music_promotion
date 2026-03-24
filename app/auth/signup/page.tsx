@@ -8,6 +8,10 @@ import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { signUp } from '@/lib/supabase/auth'
 
+import dynamic from 'next/dynamic'
+
+const Hyperspeed = dynamic(() => import('@/components/ui/Hyperspeed'), { ssr: false })
+
 export default function SignUpPage() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
@@ -37,42 +41,85 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-2">
-          <Link href="/" className="text-primary font-bold text-lg mb-4 inline-block">slydr</Link>
-          <CardTitle>Create your account</CardTitle>
-          <CardDescription>Join independent artists scaling their music careers</CardDescription>
+    <div className="min-h-screen relative flex items-center justify-center px-4 overflow-hidden py-12">
+      {/* Background Effect */}
+      <div className="absolute inset-0 z-0">
+        <Hyperspeed />
+      </div>
+      <div className="absolute inset-0 z-[1] bg-background/60 backdrop-blur-[2px]" />
+
+      <Card className="w-full max-w-lg relative z-10 border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden">
+        <CardHeader className="space-y-1 pb-6 pt-10 text-center">
+          <Link href="/" className="inline-block mb-4">
+            <span className="text-3xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">slydr</span>
+          </Link>
+          <CardTitle className="text-2xl font-bold text-white">Join the platform</CardTitle>
+          <CardDescription className="text-white/50">Start your journey as an independent artist today</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pb-10">
           {error && (
-            <div className="mb-4 p-3 bg-destructive/10 text-destructive text-sm rounded-md">{error}</div>
+            <div className="mb-6 p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-xs rounded-lg text-center">{error}</div>
           )}
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Full Name</label>
-              <Input name="fullName" placeholder="Your name" value={formData.fullName} onChange={handleChange} required />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Full Name</label>
+                <Input 
+                  name="fullName" 
+                  placeholder="John Doe" 
+                  className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                  value={formData.fullName} 
+                  onChange={handleChange} 
+                  required 
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Email</label>
+                <Input 
+                  type="email" 
+                  name="email" 
+                  placeholder="artist@slydr.com" 
+                  className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                  value={formData.email} 
+                  onChange={handleChange} 
+                  required 
+                />
+              </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Email</label>
-              <Input type="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required />
+              <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Password</label>
+              <Input 
+                type="password" 
+                name="password" 
+                placeholder="••••••••" 
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                value={formData.password} 
+                onChange={handleChange} 
+                required 
+              />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Password</label>
-              <Input type="password" name="password" placeholder="••••••••" value={formData.password} onChange={handleChange} required />
+              <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Confirm Password</label>
+              <Input 
+                type="password" 
+                name="confirmPassword" 
+                placeholder="••••••••" 
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                value={formData.confirmPassword} 
+                onChange={handleChange} 
+                required 
+              />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Confirm Password</label>
-              <Input type="password" name="confirmPassword" placeholder="••••••••" value={formData.confirmPassword} onChange={handleChange} required />
-            </div>
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? 'Creating account...' : 'Create account'}
+            <Button type="submit" className="w-full h-12 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-bold text-base transition-all duration-300 shadow-lg shadow-purple-500/20 mt-4 border-0" disabled={isLoading}>
+              {isLoading ? 'Creating account...' : 'Create Account'}
             </Button>
           </form>
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            Already have an account?{' '}
-            <Link href="/auth/signin" className="text-primary hover:underline font-medium">Sign in</Link>
-          </p>
+          <div className="mt-8 pt-6 border-t border-white/5 text-center">
+            <p className="text-sm text-white/40">
+              Already have an account?{' '}
+              <Link href="/auth/signin" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors">Sign in</Link>
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>

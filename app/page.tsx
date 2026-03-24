@@ -138,19 +138,19 @@ export default function LandingPage() {
           </FadeInSection>
 
           <FadeInSection delay={100}>
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
-              Launch your music,
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-white mb-6">
+              Empower your music. 
               <br />
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                scale your reach
+                Reach the world.
               </span>
             </h1>
           </FadeInSection>
 
           <FadeInSection delay={200}>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              The all-in-one platform for independent musicians to manage promotion campaigns,
-              connect with specialists, and grow their audience — faster than ever.
+            <p className="text-sm sm:text-base text-white/50 max-w-lg mx-auto leading-relaxed mb-8 font-medium">
+              The premium distribution and promotion platform designed for the modern independent artist. 
+              Manage your career, connect with experts, and scale your growth.
             </p>
           </FadeInSection>
 
@@ -204,13 +204,13 @@ export default function LandingPage() {
       <section id="services" className="relative py-24 sm:py-32 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
-            <div className="text-center space-y-4 mb-16">
-              <span className="text-sm uppercase tracking-widest text-purple-400 font-medium">What We Offer</span>
-              <h2 className="text-4xl sm:text-5xl font-bold">
-                Services built for{' '}
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">artists</span>
+            <div className="text-center space-y-4 mb-20">
+              <span className="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold">Why Slydr?</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                Engineered for{' '}
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Impact</span>
               </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Everything you need to promote your music effectively and professionally.</p>
+              <p className="text-white/40 text-base max-w-xl mx-auto font-medium">We provide the tools and network to take your music from the studio to the charts.</p>
             </div>
           </FadeInSection>
 
@@ -248,7 +248,7 @@ export default function LandingPage() {
           <FadeInSection>
             <div className="text-center space-y-4 mb-16">
               <span className="text-sm uppercase tracking-widest text-cyan-400 font-medium">Process</span>
-              <h2 className="text-4xl sm:text-5xl font-bold">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">
                 Four steps to{' '}
                 <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">launch</span>
               </h2>
@@ -276,15 +276,87 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── Platform Preview ── */}
+      <section className="relative py-24 px-4 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <FadeInSection direction="left">
+              <div className="space-y-6">
+                <span className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-bold">The Dashboard</span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                  Your entire career, <br />
+                  <span className="text-white/40 font-medium">in one beautiful view.</span>
+                </h2>
+                <div className="space-y-4 pt-4">
+                  {[
+                    { title: 'Real-time Analytics', desc: 'Track your streams and audience growth across all platforms.' },
+                    { title: 'Campaign Management', desc: 'Launch and monitor promotion efforts with ease.' },
+                    { title: 'Collaborative Workspace', desc: 'Work directly with our team of music specialists.' }
+                  ].map((item) => (
+                    <div key={item.title} className="flex gap-4">
+                      <div className="mt-1 h-5 w-5 rounded-full bg-cyan-500/20 flex items-center justify-center shrink-0">
+                        <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-white">{item.title}</h4>
+                        <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeInSection>
+            
+            <FadeInSection direction="right">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl group-hover:opacity-100 opacity-50 transition-opacity duration-500" />
+                <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 overflow-hidden aspect-video">
+                  <div className="w-full h-full rounded-lg bg-black/40 flex items-center justify-center">
+                    <span className="text-sm font-medium text-white/20 italic">Dashboard Interface Preview</span>
+                  </div>
+                </div>
+              </div>
+            </FadeInSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="relative py-24 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
+          <FadeInSection>
+            <div className="text-center space-y-4 mb-20">
+              <span className="text-xs uppercase tracking-[0.2em] text-pink-400 font-bold">FAQ</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">Questions? We have answers.</h2>
+            </div>
+          </FadeInSection>
+
+          <div className="space-y-4">
+            {[
+              { q: 'How does distribution work?', a: 'We distribute your music to all major streaming platforms like Spotify, Apple Music, and more, while you keep 100% of your rights.' },
+              { q: 'Can I choose my promotion team?', a: 'Yes! You can browse and connect with specialists in playlisting, social media, and digital marketing.' },
+              { q: 'How long do campaigns take?', a: 'Typical campaigns run for 4-8 weeks, but we offer custom packages tailored to your release schedule.' }
+            ].map((faq, i) => (
+              <FadeInSection key={i} delay={i * 100}>
+                <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-300">
+                  <h4 className="text-base font-bold text-white mb-2">{faq.q}</h4>
+                  <p className="text-sm text-white/40 leading-relaxed">{faq.a}</p>
+                </div>
+              </FadeInSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Testimonials ── */}
       <section className="relative py-24 sm:py-32 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
             <div className="text-center space-y-4 mb-16">
-              <span className="text-sm uppercase tracking-widest text-pink-400 font-medium">Testimonials</span>
-              <h2 className="text-4xl sm:text-5xl font-bold">
+              <span className="text-xs uppercase tracking-[0.2em] text-pink-400 font-bold">Artist Voice</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
                 Loved by{' '}
-                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">artists</span>
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">creatives</span>
               </h2>
             </div>
           </FadeInSection>
@@ -305,17 +377,17 @@ export default function LandingPage() {
                   <div className="p-8 flex flex-col h-full">
                     <div className="flex items-center gap-1 mb-4">
                       {[...Array(5)].map((_, s) => (
-                        <Star key={s} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <Star key={s} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-foreground/70 leading-relaxed flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
+                    <p className="text-white/70 text-sm leading-relaxed flex-1 italic font-medium">&ldquo;{t.quote}&rdquo;</p>
                     <div className="flex items-center gap-3 mt-6 pt-6 border-t border-border">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xs font-bold text-white">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-[10px] font-bold text-white shrink-0">
                         {t.avatar}
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-foreground">{t.name}</div>
-                        <div className="text-xs text-muted-foreground">{t.role}</div>
+                        <div className="text-xs font-bold text-white uppercase tracking-wider">{t.name}</div>
+                        <div className="text-[10px] text-white/40 font-semibold uppercase">{t.role}</div>
                       </div>
                     </div>
                   </div>
