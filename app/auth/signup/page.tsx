@@ -48,7 +48,7 @@ export default function SignUpPage() {
       </div>
       <div className="absolute inset-0 z-[1] bg-background/60 backdrop-blur-[2px]" />
 
-      <Card className="w-full max-w-lg relative z-10 border-black/10 dark:border-white/10 bg-white/5 backdrop-blur-xl shadow-none overflow-hidden">
+      <Card className="w-full max-w-lg relative z-10 border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-xl shadow-none overflow-hidden">
         <CardHeader className="space-y-1 pb-6 pt-10 text-center">
           <Link href="/" className="inline-block mb-4">
             <span className="text-3xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">slydr</span>
@@ -63,23 +63,23 @@ export default function SignUpPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Full Name</label>
+                <label className="text-xs font-semibold text-foreground/60 uppercase tracking-wider ml-1">Full Name</label>
                 <Input 
                   name="fullName" 
                   placeholder="John Doe" 
-                  className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                  className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-foreground placeholder:text-foreground/30 h-12 rounded-xl focus:ring-purple-500/50"
                   value={formData.fullName} 
                   onChange={handleChange} 
                   required 
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Email</label>
+                <label className="text-xs font-semibold text-foreground/60 uppercase tracking-wider ml-1">Email</label>
                 <Input 
                   type="email" 
                   name="email" 
                   placeholder="artist@slydr.com" 
-                  className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                  className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-foreground placeholder:text-foreground/30 h-12 rounded-xl focus:ring-purple-500/50"
                   value={formData.email} 
                   onChange={handleChange} 
                   required 
@@ -87,24 +87,24 @@ export default function SignUpPage() {
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Password</label>
+              <label className="text-xs font-semibold text-foreground/60 uppercase tracking-wider ml-1">Password</label>
               <Input 
                 type="password" 
                 name="password" 
                 placeholder="••••••••" 
-                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-foreground placeholder:text-foreground/30 h-12 rounded-xl focus:ring-purple-500/50"
                 value={formData.password} 
                 onChange={handleChange} 
                 required 
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-white/70 uppercase tracking-wider ml-1">Confirm Password</label>
+              <label className="text-xs font-semibold text-foreground/60 uppercase tracking-wider ml-1">Confirm Password</label>
               <Input 
                 type="password" 
                 name="confirmPassword" 
                 placeholder="••••••••" 
-                className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-purple-500/50"
+                className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-foreground placeholder:text-foreground/30 h-12 rounded-xl focus:ring-purple-500/50"
                 value={formData.confirmPassword} 
                 onChange={handleChange} 
                 required 
